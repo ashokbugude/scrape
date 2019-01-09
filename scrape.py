@@ -64,5 +64,4 @@ def create_dictionary(clean_list):
 # Start executing code
 if __name__ == '__main__': 
         start("https://hiverhq.com/")
-	#start("https://www.geeksforgeeks.org/programming-language-choose/") 
 
