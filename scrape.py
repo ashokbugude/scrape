@@ -16,8 +16,9 @@ def start(url):
 	soup = BeautifulSoup(source_code, 'html.parser') 
 
 	# loop all div tags for content
-	for each_text in soup.findAll('div', {'class':'entry-content'}): 
-		content = each_text.text 
+	for each_text in soup.findAll('div', {'class':'nav-sidebar'}): 
+		content = each_text.text
+
 
 		# split senctence to words and convert to lower case
 		words = content.lower().split() 
@@ -28,7 +29,7 @@ def start(url):
 
 # remove any unwanted symbols in words
 def clean_wordlist(wordlist): 
-	
+
 	clean_list =[] 
 	for word in wordlist: 
 		symbols = '!@#$%^&*()_-+={[}]|\;:"<>?/., '
@@ -50,18 +51,18 @@ def create_dictionary(clean_list):
 			word_count[word] += 1
 		else: 
 			word_count[word] = 1
-	
+
 	c = Counter(word_count) 
 	
 	# returns the most occuring elements 
 	top = c.most_common(5)
 
-	print("word\t\tCount")
+	print("Word\t\tCount")
 	for i in range(len(top)):
 		 print(str(top[i][0])+'\t\t'+str(top[i][1]))
-	print(top) 
+	#print(top) 
 
 # Start executing code
 if __name__ == '__main__': 
-        start("https://hiverhq.com/")
+        start("https://hiverhq.com")
 
